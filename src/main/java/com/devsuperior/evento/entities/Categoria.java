@@ -1,7 +1,7 @@
 package com.devsuperior.evento.entities;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,7 +20,41 @@ public class Categoria {
 	
 	private String descricao;
 	
-	@OneToMany(mappedBy = "id.categoria")
-	private Set<Atividade> atividades = new HashSet<>();
+	@OneToMany(mappedBy = "categoria")
+	private List<Atividade> atividades = new ArrayList<>();
+
+	public Categoria(Integer id, String descricao) {
+		this.id = id;
+		this.descricao = descricao;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public List<Atividade> getAtividades() {
+		return atividades;
+	}
+
+	
+	
+
+	
+	
+	
+	
+	
 
 }
