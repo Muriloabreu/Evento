@@ -1,6 +1,7 @@
 package com.devsuperior.evento.entities;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 import jakarta.persistence.Entity;
@@ -98,5 +99,30 @@ public class Atividade {
 	public List<Bloco> getBlocos() {
 		return blocos;
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Atividade other = (Atividade) obj;
+		return Objects.equals(id, other.id);
+	}
+
+	@Override
+	public String toString() {
+		return "Atividade [id=" + id + ", nome=" + nome + ", descricao=" + descricao + ", preco=" + preco
+				+ ", categoria=" + categoria + ", participantes=" + participantes + ", blocos=" + blocos + "]";
+	}
+	
+	
 
 }
